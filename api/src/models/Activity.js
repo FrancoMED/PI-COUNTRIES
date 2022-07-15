@@ -6,20 +6,12 @@ module.exports = (Sequelize) => {
 		{
 			id: {
 				type: DataTypes.UUID,
-				allowNull: false,
 				defaultValue: DataTypes.UUIDV4,
 				primaryKey: true
 			},
 			name: {
 				type: DataTypes.STRING,
 				unique: true
-			},
-			difficulty: {
-				type: DataTypes.INTEGER,
-				validate: {
-					min: 1,
-					max: 5
-				}
 			},
 			duration: {
 				type: DataTypes.INTEGER,
@@ -28,9 +20,16 @@ module.exports = (Sequelize) => {
 					max: 24
 				}
 			},
+			difficulty: {
+				type: DataTypes.INTEGER,
+				validate: {
+					min: 1,
+					max: 5
+				}
+			},
 			season: {
 				type: ENUM,
-				values: ['Verano', 'Otoño', 'Invierno', 'Primavera']
+				values: ['Summer', 'Autumn', 'Winter', 'Spring']
 			}
 		},
 		{

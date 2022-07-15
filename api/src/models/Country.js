@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, ENUM } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -21,17 +21,16 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false
 			},
-			continent: {
-				type: DataTypes.ENUM(
+			region: {
+				type: ENUM,
+				values: [
+					'Americas',
 					'Africa',
-					'Antarctica',
 					'Asia',
-					'Europe',
-					'North America',
 					'Oceania',
-					'South America',
-					'no pertenece a un continente'
-				),
+					'Europe',
+					'Antarctic'
+				],
 				allowNull: false
 			},
 			capital: {
